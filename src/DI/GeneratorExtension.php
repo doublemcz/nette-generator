@@ -16,7 +16,7 @@ class GeneratorExtension extends Nette\DI\CompilerExtension
 		'generators' => [
 			'doctrineForm' => [
 				'templateDir' => __DIR__ . '/../Templates/DoctrineForm',
-				'entityNamespace' => 'App/Entities'
+				'entityNamespace' => 'App\Entities'
 			]
 		]
 	];
