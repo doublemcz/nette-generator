@@ -16,7 +16,11 @@ You can specify several options to change generator behaviour. For example, comm
 ```
 generator:
   componentsDir: %appDir%/App/Components ## Default is %appDir%/Components
-  componentNamespace: App/Components     ## Default is Components
+  componentNamespace: App\Components     ## Default is Components
+
+  generators:
+  	doctrineForm:
+  		entityNamespace: App\Entities
 ```
 
 ## Usage
@@ -48,9 +52,5 @@ If given folder `UserForm` exists, generator tells you you cannot continue and D
 
 ## Available commands
  - generate:doctrine-form
- 
-## Doctrine form
-### Parameters
- - templateDir (a directory with Form.latte.template, IFormFactory.template and Form.php.template)
 
 
