@@ -37,7 +37,10 @@ You will be asked to specify `name` and `entity name`. Name can be `UserForm` an
     config
     Presenters
       templates
-
+  www
+  temp
+  vendor
+  ...
 ```
 
 If given folder `UserForm` exists, generator tells you you cannot continue and DO NOT OVERWRITE files.
