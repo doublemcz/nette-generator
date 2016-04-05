@@ -15,7 +15,7 @@ You can specify several options to change generator behaviour. For example, comm
 
 ```
 generator:
- componentsDir: app/Components
+ componentsDir: Components ## Parent is %appDir%
 ```
 
 ## Available commands
