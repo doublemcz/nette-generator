@@ -1,5 +1,4 @@
 # Nette component generator
-===========================
 
 ## Basic installation
 via composer `composer require doublemcz/nette-generator`
