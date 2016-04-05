@@ -6,7 +6,7 @@ via composer `composer require doublemcz/nette-generator`
 ## Configuration
 Activete by nette extension. Go to config.neon and append this to the file
 ```
-extension:
+extensions:
   console: Kdyby\Console\DI\ConsoleExtension
   generator: Doublemcz\NetteGenerator\DI\GeneratorExtension
 ```
