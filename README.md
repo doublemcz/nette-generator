@@ -16,7 +16,7 @@ You can specify several options to change generator behaviour. For example, comm
 ```
 generator:
  componentsDir: %appDir%/App/Components ## Default is %appDir%/Components
- componetnNamespace: App/Components     ## Default is Components
+ componentNamespace: App/Components     ## Default is Components
 ```
 
 ## Usage
