@@ -11,6 +11,6 @@ via composer `composer require doublemcz/nette-generator`
 
 # Doctrine form
 ### Parameters
- - templateDir (a directory with Form.latte.template, IFormFactory.template adn Form.php.template)
+ - templateDir (a directory with Form.latte.template, IFormFactory.template and Form.php.template)
 
 
