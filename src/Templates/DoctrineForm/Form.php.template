@@ -1,0 +1,80 @@
+<?php
+
+namespace Components\##FORM_NAME##;
+
+use App;
+use Nette;
+use Kdyby;
+
+class ##FORM_NAME## extends Nette\Application\UI\Control
+{
+    /** @var Kdyby\Doctrine\EntityManager */
+    private $entityManager;
+	/** @var App\Entities\##ENTITY_NAME## **/
+    private $##ENTITY_NAME_PROPERTY##;
+
+    /**
+     * ##FORM_NAME## constructor.
+     * @param Kdyby\Doctrine\EntityManager $entityManager
+     */
+    public function __construct(Kdyby\Doctrine\EntityManager $entityManager)
+    {
+        parent::__construct();
+        $this->entityManager = $entityManager;
+    }
+
+	/**
+	 * @return Nette\Application\UI\Form
+	 */
+    protected function createComponentForm()
+    {
+        $form = new Nette\Application\UI\Form();
+
+        $form->addSubmit('saveButton', 'Save');
+        $form->onSuccess[] = [$this, 'onSuccess'];
+        $form->setDefaults($this->##ENTITY_NAME_PROPERTY##->toArray());
+
+        return $form;
+    }
+
+	/**
+     * @param Nette\Application\UI\Form $form
+     * @throws \Exception
+     */
+    public function onSuccess(Nette\Application\UI\Form $form)
+    {
+        if (!$this->##ENTITY_NAME_PROPERTY##) {
+            throw new \InvalidArgumentException('##ENTITY_NAME## instance is missing. Did you call `set##ENTITY_NAME##` method?');
+        }
+
+        $values = $form->getValues();
+        // DO THE MAGIC
+        $this->entityManager->flush($this->##ENTITY_NAME_PROPERTY##);
+    }
+
+    public function render()
+    {
+        if (!$this->template->getFile()) {
+			$this->template->setFile(__DIR__ . '/' . substr(__CLASS__, strrpos(__CLASS__, '\\') + 1) . '.latte');
+		}
+
+        $this->template->##ENTITY_NAME_PROPERTY## = $this->##ENTITY_NAME_PROPERTY##;
+        $this->template->render();
+    }
+
+    /**
+     * @return App\Entities\##ENTITY_NAME##
+     */
+    public function get##ENTITY_NAME##()
+    {
+        return $this->##ENTITY_NAME_PROPERTY##;
+    }
+
+    /**
+     * @param App\Entities\##ENTITY_NAME## $##ENTITY_NAME_PROPERTY##
+     */
+    public function set##ENTITY_NAME##(App\Entities\##ENTITY_NAME## $##ENTITY_NAME_PROPERTY##)
+    {
+        $this->##ENTITY_NAME_PROPERTY## = $##ENTITY_NAME_PROPERTY##;
+    }
+}

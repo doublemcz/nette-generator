@@ -1,0 +1,20 @@
+{
+  "name": "doublemcz/nette-generator",
+  "require": {
+    "nette/nette": "^2.3",
+    "kdyby/console": "*"
+  },
+  "require-dev": {
+    "nette/tester": "^1.7",
+    "kdyby/doctrine" : "*"
+  },
+  "authors": [
+    {
+      "name": "Martin Mika",
+      "email": "mail@martinmika.eu"
+    }
+  ],
+  "autoload" : {
+    "classmap" : ["src/"]
+  }
+}

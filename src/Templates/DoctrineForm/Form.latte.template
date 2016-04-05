@@ -1,0 +1,3 @@
+{form form data-nette-form="##NAME##"}
+    <div n:foreach="$form->errors as $error" class="alert alert-danger">{$error}</div>
+{/form}
