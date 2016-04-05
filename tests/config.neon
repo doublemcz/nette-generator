@@ -4,6 +4,7 @@ extensions:
 
 generator:
 	componentsDir: %appDir%/../Components
+	componentNamespace: AcmeCompany\Components
 	generators:
 		doctrineForm:
 			entityNamespace: AnotherBundle\Entities
