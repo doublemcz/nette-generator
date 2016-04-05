@@ -17,7 +17,8 @@ abstract class BaseGenerator
 	{
 		$mandatoryParameters = [
 			'Template directory' => 'templateDir',
-			'Components directory' => 'componentsDir'
+			'Components directory' => 'componentsDir',
+			'Component namespace' => 'componentNamespace',
 		];
 
 		$this->checkParameters($config, $mandatoryParameters);

@@ -12,9 +12,11 @@ class GeneratorExtension extends Nette\DI\CompilerExtension
 	 * @var array
 	 */
 	public $defaults = [
+		'componentNamespace' => 'Components',
 		'generators' => [
 			'doctrineForm' => [
-				'templateDir' => __DIR__ . '/../Templates/DoctrineForm'
+				'templateDir' => __DIR__ . '/../Templates/DoctrineForm',
+				'entityNamespace' => 'App/Entities'
 			]
 		]
 	];
@@ -37,9 +39,16 @@ class GeneratorExtension extends Nette\DI\CompilerExtension
 	{
 		$builder = $this->getContainerBuilder();
 		$config = $this->getConfig();
-		$parameters = array_merge(['componentsDir' => $config['componentsDir']], $config['generators']['doctrineForm']);
-		$builder->addDefinition($this->prefix('generators.doctrineFormGenerator'))
-			->setClass('Doublemcz\NetteGenerator\Generators\DoctrineFormGenerator', [$parameters]);
+		$generators = ['DoctrineFormGenerator'];
+		foreach ($generators as $generator) {
+			$parameters = array_merge(
+				$this->sharedConfigBetweenGenerators(),
+				$config['generators'][lcfirst(str_replace('Generator', '', $generator))]
+			);
+
+			$builder->addDefinition($this->prefix('generators.' . lcfirst($generator)))
+				->setClass('Doublemcz\\NetteGenerator\\Generators\\' . $generator, [$parameters]);
+		}
 	}
 
 	/**
@@ -54,5 +63,18 @@ class GeneratorExtension extends Nette\DI\CompilerExtension
 		}
 
 		return $config;
+	}
+
+	/**
+	 * @return array
+	 */
+	private function sharedConfigBetweenGenerators()
+	{
+		$config = $this->getConfig();
+
+		return [
+			'componentsDir' => $config['componentsDir'],
+			'componentNamespace' => $config['componentNamespace'],
+		];
 	}
 }

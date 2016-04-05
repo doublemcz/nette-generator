@@ -1,6 +1,6 @@
 <?php
 
-namespace Components\##FORM_NAME##;
+namespace ##COMPONENT_NAMESPACE##\##FORM_NAME##;
 
 use App;
 use Nette;
@@ -10,7 +10,7 @@ class ##FORM_NAME## extends Nette\Application\UI\Control
 {
     /** @var Kdyby\Doctrine\EntityManager */
     private $entityManager;
-	/** @var App\Entities\##ENTITY_NAME## **/
+	/** @var ##ENTITY_NAMESPACE##\##ENTITY_NAME## **/
     private $##ENTITY_NAME_PROPERTY##;
 
     /**
@@ -63,7 +63,7 @@ class ##FORM_NAME## extends Nette\Application\UI\Control
     }
 
     /**
-     * @return App\Entities\##ENTITY_NAME##
+     * @return ##ENTITY_NAMESPACE##\##ENTITY_NAME##
      */
     public function get##ENTITY_NAME##()
     {
@@ -71,9 +71,9 @@ class ##FORM_NAME## extends Nette\Application\UI\Control
     }
 
     /**
-     * @param App\Entities\##ENTITY_NAME## $##ENTITY_NAME_PROPERTY##
+     * @param ##ENTITY_NAMESPACE##\##ENTITY_NAME## $##ENTITY_NAME_PROPERTY##
      */
-    public function set##ENTITY_NAME##(App\Entities\##ENTITY_NAME## $##ENTITY_NAME_PROPERTY##)
+    public function set##ENTITY_NAME##(##ENTITY_NAMESPACE##\##ENTITY_NAME## $##ENTITY_NAME_PROPERTY##)
     {
         $this->##ENTITY_NAME_PROPERTY## = $##ENTITY_NAME_PROPERTY##;
     }

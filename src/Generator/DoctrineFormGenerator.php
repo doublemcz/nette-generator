@@ -16,8 +16,12 @@ class DoctrineFormGenerator extends BaseGenerator
 	 */
 	public function generate(array $parameters)
 	{
-		$this->checkParameters($parameters, ['Name' => 'name', 'Entity name' => 'entityName']);
+		$mandatoryParameters = [
+			'Name' => 'name',
+			'Entity name' => 'entityName',
+		];
 
+		$this->checkParameters($parameters, $mandatoryParameters);
 		$finalDir = $this->config['componentsDir'] . '/' . $parameters['name'];
 		if (is_dir($finalDir)) {
 			throw new DuplicationException(sprintf('Component `%s` already exists.', $finalDir));
@@ -41,7 +45,9 @@ class DoctrineFormGenerator extends BaseGenerator
 		];
 
 		$placeholders = [
+			'COMPONENT_NAMESPACE' => $this->config['componentNamespace'],
 			'ENTITY_NAME_PROPERTY' => lcfirst($parameters['entityName']),
+			'ENTITY_NAMESPACE' => $this->config['entityNamespace'],
 			'ENTITY_NAME' => $parameters['entityName'],
 			'FORM_NAME' => $componentName,
 		];
