@@ -1,7 +1,0 @@
-[2016-04-05 11-22-12] There are no commands defined in the "generate" namespace.  @  CLI: tests/index.php generate:form 
-[2016-04-05 11-23-09] There are no commands defined in the "generate" namespace.  @  CLI: tests/index.php generate:form 
-[2016-04-05 11-23-16] There are no commands defined in the "generate" namespace.  @  CLI: tests/index.php generate:form 
-[2016-04-05 12-24-28] Command "generate:form" is not defined.  @  CLI: tests/index.php generate:form 
-[2016-04-05 12-26-09] Nette\DI\MissingServiceException: Service of type Doublemcz\NetteGenerator\Generators\DoctrineFormGenerator not found. in E:\Sites\projects.localhost\nette-generator\vendor\nette\di\src\DI\Container.php:209  @  CLI: tests/index.php generate:doctrine-form  @@  exception--2016-04-05--12-26--ca6e6c1ba4.html
-[2016-04-05 12-30-17] Doublemcz\NetteGenerator\Generators\InvalidArgumentException: Template directory is mandatory. Please set `templateDir` in parameters array. in E:\Sites\projects.localhost\nette-generator\src\Generator\DoctrineFormGenerator.php:38  @  CLI: tests/index.php generate:doctrine-form  @@  exception--2016-04-05--12-30--b573a17198.html
-[2016-04-05 12-39-06] Doublemcz\NetteGenerator\Generators\InvalidArgumentException: Components directory is mandatory. Please set `componentsDirectory` in parameters array. in E:\Sites\projects.localhost\nette-generator\src\Generator\BaseGenerator.php:37  @  CLI: tests/index.php generate:doctrine-form  @@  exception--2016-04-05--12-39--d8c0cdf2dd.html

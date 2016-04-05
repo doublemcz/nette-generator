@@ -1,3 +1,5 @@
 vendor
 .idea
 app
+tests/temp
+tests/log

@@ -12,7 +12,6 @@ class GeneratorExtension extends Nette\DI\CompilerExtension
 	 * @var array
 	 */
 	public $defaults = [
-		'componentsDir' => __DIR__ . '/../../app/Components',
 		'generators' => [
 			'doctrineForm' => [
 				'templateDir' => __DIR__ . '/../Templates/DoctrineForm'
@@ -36,11 +35,24 @@ class GeneratorExtension extends Nette\DI\CompilerExtension
 
 	private function registerGenerators()
 	{
-		$config = $this->getConfig($this->defaults);
 		$builder = $this->getContainerBuilder();
-
-		$parameters = ['componentsDir' => $config['componentsDir']] + $config['generators']['doctrineForm'];
+		$config = $this->getConfig();
+		$parameters = array_merge(['componentsDir' => $config['componentsDir']], $config['generators']['doctrineForm']);
 		$builder->addDefinition($this->prefix('generators.doctrineFormGenerator'))
 			->setClass('Doublemcz\NetteGenerator\Generators\DoctrineFormGenerator', [$parameters]);
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getConfig()
+	{
+		$config = parent::getConfig($this->defaults);
+		$appDir = $this->getContainerBuilder()->parameters['appDir'];
+		if (!array_key_exists('componentsDir', $config)) {
+			$config['componentsDir'] = $appDir . '/Components';
+		}
+
+		return $config;
 	}
 }

@@ -1,3 +1,6 @@
 extensions:
 	console: Kdyby\Console\DI\ConsoleExtension
 	generator: Doublemcz\NetteGenerator\DI\GeneratorExtension
+
+generator:
+	componentsDir: %appDir%/../Components
