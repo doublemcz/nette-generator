@@ -1,6 +1,6 @@
 vendor
 .idea
 app
-tests/temp
-tests/log
+tests/temp/*
+tests/log/*
 !.gitkeep
