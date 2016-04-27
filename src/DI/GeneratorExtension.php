@@ -17,29 +17,49 @@ class GeneratorExtension extends Nette\DI\CompilerExtension
 			'doctrineForm' => [
 				'templateDir' => __DIR__ . '/../Templates/DoctrineForm',
 				'entityNamespace' => 'App\Entities'
+			],
+			'component' => [
+				'templateDir' => __DIR__ . '/../Templates/Component',
 			]
 		]
 	];
 
+	/**
+	 * @inheritdoc
+	 */
 	public function loadConfiguration()
 	{
 		$this->registerCommands();
 		$this->registerGenerators();
 	}
 
+	/**
+	 * Registers console commands into configuration
+	 *
+	 * @return void
+	 */
 	private function registerCommands()
 	{
 		$builder = $this->getContainerBuilder();
 		$builder->addDefinition($this->prefix('commands.doctrineForm'))
 			->setClass('Doublemcz\NetteGenerator\Commands\GenerateFormCommand')
 			->addTag(ConsoleExtension::TAG_COMMAND);
+
+		$builder->addDefinition($this->prefix('commands.component'))
+			->setClass('Doublemcz\NetteGenerator\Commands\GenerateComponentCommand')
+			->addTag(ConsoleExtension::TAG_COMMAND);
 	}
 
+	/**
+	 * Registers generators into configuration
+	 *
+	 * @return void
+	 */
 	private function registerGenerators()
 	{
 		$builder = $this->getContainerBuilder();
 		$config = $this->getConfig();
-		$generators = ['DoctrineFormGenerator'];
+		$generators = ['DoctrineFormGenerator', 'ComponentGenerator'];
 		foreach ($generators as $generator) {
 			$parameters = array_merge(
 				$this->sharedConfigBetweenGenerators(),

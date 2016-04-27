@@ -1,0 +1,19 @@
+<?php
+
+namespace ##COMPONENT_NAMESPACE##\##NAME##;
+
+use App;
+use Nette;
+use Kdyby;
+
+class ##NAME## extends Nette\Application\UI\Control
+{
+    public function render()
+    {
+        if (!$this->template->getFile()) {
+			$this->template->setFile(__DIR__ . '/' . substr(__CLASS__, strrpos(__CLASS__, '\\') + 1) . '.latte');
+		}
+
+        $this->template->render();
+    }
+}
