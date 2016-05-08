@@ -52,6 +52,9 @@ class ##FORM_NAME## extends Nette\Application\UI\Control
         $this->entityManager->flush($this->##ENTITY_NAME_PROPERTY##);
     }
 
+	/**
+	 * Renders form
+	 */
     public function render()
     {
         if (!$this->template->getFile()) {

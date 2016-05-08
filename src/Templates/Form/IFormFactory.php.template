@@ -1,0 +1,9 @@
+<?php
+
+namespace ##COMPONENT_NAMESPACE##\##FORM_NAME##;
+
+interface I##FORM_NAME##Factory
+{
+    /** @return ##FORM_NAME## */
+    function create();
+}

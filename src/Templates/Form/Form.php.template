@@ -1,0 +1,55 @@
+<?php
+
+namespace ##COMPONENT_NAMESPACE##\##FORM_NAME##;
+
+use App;
+use Nette;
+
+class ##FORM_NAME## extends Nette\Application\UI\Control
+{
+	/**
+	 * @return Nette\Application\UI\Form
+	 */
+    protected function createComponentForm()
+    {
+        $form = new Nette\Application\UI\Form();
+
+        $form->addSubmit('saveButton', 'Save');
+        $form->onSuccess[] = [$this, 'onSuccess'];
+        $form->onError[] = [$this, 'onError'];
+
+        return $form;
+    }
+
+	/**
+     * @param Nette\Application\UI\Form $form
+     * @throws \Exception
+     */
+    public function onSuccess(Nette\Application\UI\Form $form)
+    {
+        $values = $form->getValues();
+        // DO THE MAGIC
+    }
+
+    /**
+	 * @param Nette\Application\UI\Form $form
+	 * @throws \Exception
+	 */
+	public function onError(Nette\Application\UI\Form $form)
+	{
+		$values = $form->getValues();
+		// DO THE MAGIC
+	}
+
+	/**
+	 * Renders form
+	 */
+    public function render()
+    {
+        if (!$this->template->getFile()) {
+			$this->template->setFile(__DIR__ . '/' . substr(__CLASS__, strrpos(__CLASS__, '\\') + 1) . '.latte');
+		}
+
+        $this->template->render();
+    }
+}
