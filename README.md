@@ -23,6 +23,11 @@ generator:
   		entityNamespace: App\Entities
 ```
 
+## Available commands
+ - generate:form (Generates simple empty component with Nette Form, used i.e. for contact form)
+ - generate:doctrine-form  (Generates a component with Nette Form based on Doctrine ORM)
+ - generate:component  (Generates empty component)
+
 ## Usage
 You can generate a component by Console command (Kdyby/Console). For Doctrine Form just run this command from root of your project.
 ```
@@ -48,9 +53,14 @@ You will be asked to specify `name` and `entity name`. Name can be `UserForm` an
   ...
 ```
 
-If given folder `UserForm` exists, generator tells you you cannot continue and DO NOT OVERWRITE files.
+##### Command accepts optional arguments for component and entity name
+```
+php www/index.php generate:doctrine-form [ComponentName] [EntityName]
+```
 
-## Available commands
- - generate:form (Generates simple empty component with Nette Form, used i.e. for contact form)
- - generate:doctrine-form  (Generates a component with Nette Form based on Doctrine ORM)
- - generate:component  (Generates empty component)
+Example
+```
+php www/index.php generate:doctrine-form UserForm User
+```
+
+If given folder `UserForm` exists, generator tells you you cannot continue and DO NOT OVERWRITE files.
