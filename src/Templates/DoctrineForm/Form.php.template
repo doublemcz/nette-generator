@@ -2,12 +2,11 @@
 
 namespace ##COMPONENT_NAMESPACE##\##FORM_NAME##;
 
-use App;
 use Nette;
-use Kdyby;
 
 class ##FORM_NAME## extends Nette\Application\UI\Control
 {
+
     /** @var Kdyby\Doctrine\EntityManager */
     private $entityManager;
 	/** @var ##ENTITY_NAMESPACE##\##ENTITY_NAME## **/
@@ -80,4 +79,5 @@ class ##FORM_NAME## extends Nette\Application\UI\Control
     {
         $this->##ENTITY_NAME_PROPERTY## = $##ENTITY_NAME_PROPERTY##;
     }
+
 }

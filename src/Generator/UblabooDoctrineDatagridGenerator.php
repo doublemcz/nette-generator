@@ -5,10 +5,10 @@ namespace Doublemcz\NetteGenerator\Generators;
 use Nette;
 
 /**
- * Class DoctrineFormGenerator
+ * Class UblabooDoctrineDatagridGenerator
  * @package Doublemcz\NetteGenerator\Generators
  */
-class ComponentGenerator extends BaseGenerator
+class UblabooDoctrineDatagridGenerator extends BaseGenerator
 {
 
 	/**
@@ -58,7 +58,7 @@ class ComponentGenerator extends BaseGenerator
 				$fileContents = str_replace('##' . $placeholder . '##', $value, $fileContents);
 			}
 
-			// Tabs are Nette standard (4 spaces to tab)
+			// Tabs are Nette standard
 			$fileContents = str_replace('    ', "\t", $fileContents);
 			file_put_contents($destinationFilePath, $fileContents);
 		}

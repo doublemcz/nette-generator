@@ -8,6 +8,7 @@ use Doublemcz;
 
 class GeneratorExtension extends Nette\DI\CompilerExtension
 {
+
 	/**
 	 * @var array
 	 */
@@ -23,6 +24,9 @@ class GeneratorExtension extends Nette\DI\CompilerExtension
 			],
 			'component' => [
 				'templateDir' => __DIR__ . '/../Templates/Component',
+			],
+			'ublabooDoctrineDatagrid' => [
+				'templateDir' => __DIR__ . '/../Templates/UblabooDoctrineDatagrid',
 			]
 		]
 	];
@@ -55,6 +59,10 @@ class GeneratorExtension extends Nette\DI\CompilerExtension
 		$builder->addDefinition($this->prefix('commands.component'))
 			->setClass('Doublemcz\NetteGenerator\Commands\GenerateComponentCommand')
 			->addTag(ConsoleExtension::TAG_COMMAND);
+
+		$builder->addDefinition($this->prefix('commands.ublabooDoctrineDatagrid'))
+			->setClass('Doublemcz\NetteGenerator\Commands\GenerateUblabooDoctrineDatagrid')
+			->addTag(ConsoleExtension::TAG_COMMAND);
 	}
 
 	/**
@@ -66,7 +74,7 @@ class GeneratorExtension extends Nette\DI\CompilerExtension
 	{
 		$builder = $this->getContainerBuilder();
 		$config = $this->getConfig();
-		$generators = ['FormGenerator', 'DoctrineFormGenerator', 'ComponentGenerator'];
+		$generators = ['FormGenerator', 'DoctrineFormGenerator', 'ComponentGenerator', 'UblabooDoctrineDatagridGenerator'];
 		foreach ($generators as $generator) {
 			$parameters = array_merge(
 				$this->sharedConfigBetweenGenerators(),
@@ -104,4 +112,5 @@ class GeneratorExtension extends Nette\DI\CompilerExtension
 			'componentNamespace' => $config['componentNamespace'],
 		];
 	}
+
 }

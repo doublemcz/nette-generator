@@ -11,6 +11,7 @@ use Symfony\Component\Console\Question\Question;
 
 class GenerateComponentCommand extends Command
 {
+
 	/**
 	 * @inheritdoc
 	 */
@@ -42,7 +43,6 @@ class GenerateComponentCommand extends Command
 		} catch (DuplicationException $e) {
 			$output->writeln('ERROR: ' .$e->getMessage());
 		}
-
-		return 0;
 	}
+
 }

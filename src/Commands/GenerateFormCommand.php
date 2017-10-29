@@ -7,6 +7,7 @@ use Symfony;
 
 class GenerateFormCommand extends Symfony\Component\Console\Command\Command
 {
+
 	/**
 	 * @inheritdoc
 	 */
@@ -38,7 +39,6 @@ class GenerateFormCommand extends Symfony\Component\Console\Command\Command
 		} catch (Doublemcz\NetteGenerator\Generators\DuplicationException $e) {
 			$output->writeln('ERROR: ' .$e->getMessage());
 		}
-
-		return 0;
 	}
+
 }

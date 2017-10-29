@@ -6,7 +6,8 @@
   },
   "require-dev": {
     "nette/tester": "^1.7",
-    "kdyby/doctrine" : "*"
+    "kdyby/doctrine": "*",
+    "ublaboo/datagrid": "*"
   },
   "authors": [
     {
@@ -14,7 +15,9 @@
       "email": "mail@martinmika.eu"
     }
   ],
-  "autoload" : {
-    "classmap" : ["src/"]
+  "autoload": {
+    "classmap": [
+      "src/"
+    ]
   }
 }

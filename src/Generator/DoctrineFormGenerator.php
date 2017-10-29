@@ -10,6 +10,7 @@ use Nette;
  */
 class DoctrineFormGenerator extends BaseGenerator
 {
+
 	/**
 	 * @param array $parameters
 	 * @throws DuplicationException
@@ -66,4 +67,5 @@ class DoctrineFormGenerator extends BaseGenerator
 			file_put_contents($destinationFilePath, $fileContents);
 		}
 	}
+
 }

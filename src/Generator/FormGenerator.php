@@ -10,6 +10,7 @@ use Nette;
  */
 class FormGenerator extends BaseGenerator
 {
+
 	/**
 	 * @param array $parameters
 	 * @throws DuplicationException
@@ -62,4 +63,5 @@ class FormGenerator extends BaseGenerator
 			file_put_contents($destinationFilePath, $fileContents);
 		}
 	}
+
 }

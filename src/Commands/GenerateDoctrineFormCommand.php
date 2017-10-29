@@ -12,6 +12,7 @@ use Symfony\Component\Console\Question\Question;
 
 class GenerateDoctrineFormCommand extends Command
 {
+
 	/**
 	 * @inheritdoc
 	 */
@@ -59,7 +60,6 @@ class GenerateDoctrineFormCommand extends Command
 		} catch (DuplicationException $e) {
 			$output->writeln('ERROR: ' . $e->getMessage());
 		}
-
-		return 0;
 	}
+
 }

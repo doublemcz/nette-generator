@@ -1,0 +1,88 @@
+<?php
+
+namespace ##COMPONENT_NAMESPACE##\##NAME##;
+
+use Nette\Application\UI\Control;
+use Ublaboo;
+use Kdyby\Doctrine\EntityManager;
+use Kdyby\Doctrine\QueryBuilder;
+
+class ##NAME## extends Control
+{
+
+	/** @var EntityManager */
+	private $entityManager;
+
+	/**
+	 * @param $entityManager EntityManager
+	 */
+	public function __construct(EntityManager $entityManager)
+	{
+		parent::__construct();
+		$this->entityManager = $entityManager;
+	}
+
+	/**
+	 * @return void
+	 */
+    public function render()
+    {
+        if (!$this->template->getFile()) {
+			$this->template->setFile(__DIR__ . '/' . substr(__CLASS__, strrpos(__CLASS__, '\\') + 1) . '.latte');
+		}
+
+        $this->template->render();
+    }
+
+	/**
+	 * @return Ublaboo\DataGrid\DataGrid
+	 */
+    public function createComponentDatagrid()
+    {
+		$dataGrid = new Ublaboo\DataGrid\DataGrid();
+		$dataGrid->setDataSource($this->createDataSource());
+		$this->addColumns($dataGrid);
+        $this->addFilters($dataGrid);
+        $this->addActions($dataGrid);
+
+		return $dataGrid;
+    }
+
+   	/**
+   	 * @return QueryBuilder
+   	 */
+   	private function createDataSource()
+   	{
+   		$queryBuilder = $this->entityManager->createQueryBuilder();
+
+   		return $queryBuilder;
+   	}
+
+   	/**
+     * @param Ublaboo\DataGrid\DataGrid $dataGrid
+     * @return void
+     */
+    private function addColumns(Ublaboo\DataGrid\DataGrid $dataGrid)
+    {
+
+    }
+
+    /**
+     * @param Ublaboo\DataGrid\DataGrid $dataGrid
+     * @return void
+     */
+    private function addFilters(Ublaboo\DataGrid\DataGrid $dataGrid)
+    {
+
+    }
+
+    /**
+     * @param Ublaboo\DataGrid\DataGrid $dataGrid
+     * @return void
+     */
+    private function addActions(Ublaboo\DataGrid\DataGrid $dataGrid)
+    {
+
+    }
+
+}

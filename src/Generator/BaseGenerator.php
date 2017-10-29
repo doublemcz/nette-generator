@@ -6,6 +6,7 @@ use Nette;
 
 abstract class BaseGenerator
 {
+
 	/** @var array */
 	protected $config;
 
@@ -39,4 +40,5 @@ abstract class BaseGenerator
 			}
 		}
 	}
+
 }
